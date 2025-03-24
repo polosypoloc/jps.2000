@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница с колонками</title>
+  <style>
+    /* Общий стиль страницы */
+    body {
+      background-color: #121212; /* Темный фон */
+      color: #e0e0e0; /* Светлый текст */
+      font-family: 'Times New Roman', serif; /* Газетный шрифт */
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      overflow-x: hidden; /* Убираем горизонтальную прокрутку для body */
+    }
+
+    /* Контейнер для колонок */
+    .container {
+      display: flex; /* Горизонтальное расположение колонок */
+      gap: 20px; /* Расстояние между колонками */
+      max-width: 1200px;
+      margin: 20px auto; /* Центрирование контейнера */
+      padding: 0 10px;
+      overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+    }
+
+    /* Стиль для каждой колонки */
+    .column {
+      flex: 0 0 calc(50% - 10px); /* Каждая колонка занимает половину ширины */
+      min-width: 300px; /* Минимальная ширина колонки */
+      background-color: #1f1f1f; /* Темно-серый фон */
+      padding: 20px;
+      border-radius: 8px; /* Закругленные углы */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Легкая тень */
+      text-align: center;
+    }
+
+    /* Разделительная линия между колонками */
+    .column:not(:last-child) {
+      border-right: 2px solid #333; /* Вертикальная линия */
+    }
+
+    /* Изображения в колонках */
+    .column img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    /* Адаптивность для мобильных устройств */
+    @media (max-width: 768px) {
+      .container {
+        flex-wrap: nowrap; /* Колонки остаются горизонтальными */
+        overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+        gap: 10px; /* Уменьшаем расстояние между колонками */
+      }
+      .column {
+        flex: 0 0 calc(50% - 10px); /* Каждая колонка занимает половину ширины */
+        min-width: 300px; /* Минимальная ширина колонки */
+      }
+      .column:not(:last-child) {
+        border-right: 2px solid #333; /* Сохраняем вертикальную линию */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Контейнер с колонками -->
+  <div class="container">
+    <!-- Левая колонка -->
+    <div class="column">
+      <img src="https://via.placeholder.com/300x200" alt="Изображение для первой колонки">
+      <h2>Первая</h2>
+      <p>Первая. Первая. Первая.</p>
+    </div>
+
+    <!-- Правая колонка -->
+    <div class="column">
+      <img src="https://via.placeholder.com/300x200" alt="Изображение для второй колонки">
+      <h2>Вторая</h2>
+      <p>Вторая. Вторая. Вторая.</p>
+    </div>
+  </div>
+</body>
+</html>
